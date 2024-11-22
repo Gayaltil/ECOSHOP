@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deals & Discounts - EcoShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero-section">
+        <div class="hero-content">
+            <h2>Eco-Friendly Deals Just for You</h2>
+            <p>Find amazing discounts on sustainable products and services. Save money while helping the planet!</p>
+            <a href="#deals-list" class="cta-button">Browse Deals</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="filter-section">
+            <h2>Find Eco-Friendly Deals</h2>
+            <label for="category">Category:</label>
+            <select id="category" onchange="filterDeals()">
+                <option value="all">All</option>
+                <option value="products">Products</option>
+                <option value="services">Services</option>
+            </select>
+
+            <label for="discount">Min Discount:</label>
+            <input type="number" id="discount" placeholder="Enter % discount" oninput="filterDeals()">
+        </section>
+
+        <section id="deals-list">
+            <h2>Latest Deals & Discounts</h2>
+            <div class="deal-item" data-category="products" data-discount="20">
+                <h3>50% Off on Eco-Friendly Water Bottles</h3>
+                <p>Get 50% off on all eco-friendly water bottles. Perfect for your daily hydration needs!</p>
+                <span>Discount: 50%</span>
+            </div>
+            <div class="deal-item" data-category="services" data-discount="15">
+                <h3>15% Off on Eco-Friendly Home Cleaning Services</h3>
+                <p>Get a clean home with eco-friendly products and methods at a discounted price.</p>
+                <span>Discount: 15%</span>
+            </div>
+            <div class="deal-item" data-category="products" data-discount="30">
+                <h3>30% Off on Sustainable Clothing</h3>
+                <p>Shop sustainable clothing made from organic materials and enjoy 30% off.</p>
+                <span>Discount: 30%</span>
+            </div>
+            <div class="deal-item" data-category="services" data-discount="10">
+                <h3>10% Off on Solar Panel Installation</h3>
+                <p>Save on solar panel installation services and switch to renewable energy today!</p>
+                <span>Discount: 10%</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

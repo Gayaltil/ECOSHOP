@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Friendly Service Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+   
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Sustainable Services Near You</h1>
+        <p>Discover eco-friendly businesses that make a difference.</p>
+        <div class="hero-actions">
+            <input type="text" id="locationInput" placeholder="Enter your city or zip code">
+            <button onclick="findServices()">Find Services</button>
+        </div>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="categories">
+        <h2>Explore Categories</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <a href="http://127.0.0.1:5500/Organic%20Grocery%20Stores/index.html">
+                    <img src="images/04.jpg" alt="Organic Grocery Stores">
+                    <h3>Organic Grocery Stores</h3>
+                </a>
+                <p>Shop fresh, sustainable produce and goods.</p>
+            </div>
+                        
+            <div class="category-card">
+                <a href="http://127.0.0.1:5500/Repair%20&%20Reuse%20Centers/index.html"> <!-- Link to the Repair & Reuse page -->
+                    <img src="images/03.jpg" alt="Repair & Reuse Centers">
+                    <h3>Repair & Reuse Centers</h3>
+                </a>
+                <p>Extend the life of your belongings sustainably.</p>
+            </div>
+            
+            <div class="category-card">
+                <a href="http://127.0.0.1:5500/Recycling%20Centers/index.html"> <!-- Link to the Recycling Centers page -->
+                    <img src="images/05.jpg" alt="Recycling Centers">
+                    <h3>Recycling Centers</h3>
+                </a>
+                <p>Dispose of waste responsibly and recycle better.</p>
+            </div>
+            
+            <div class="category-card">
+                <a href="http://127.0.0.1:5500/Eco-Friendly%20Cleaning/index.html"> <!-- Link to the Eco Cleaning Services page -->
+                    <img src="images/02.jpg" alt="Eco Cleaning Services">
+                    <h3>Eco-Friendly Cleaning</h3>
+                </a>
+                <p>Green cleaning solutions for your home or office.</p>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="map">
+        <h2>Find Services Near You</h2>
+        <div id="map"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

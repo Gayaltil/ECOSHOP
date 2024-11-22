@@ -1,0 +1,350 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(45deg, #eaf4e4, #f4f7f5);
+}
+
+/* Hero Section */
+/* Hero Section with Animated Background */
+/* Hero Section with Animated Background */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 50px 20px;
+    height: 400px;
+    overflow: hidden;
+    
+}
+
+/* Animated background image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/01.jpg') center/cover no-repeat; /* Replace with your image path */
+    z-index: -2; /* Keep the background behind the content */
+    animation: moveBackground 15s linear infinite; /* Apply animation */
+}
+
+/* Semi-transparent overlay for better contrast */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: -1; /* Ensure it appears above the background but behind the text */
+}
+
+/* Keyframe for background movement */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hero Text Styling */
+/* Hero Title Animation */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    margin-top: 150px;
+    color: white; /* Ensure text is highly visible */
+    z-index: 1;
+    position: relative;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add subtle shadow for more contrast */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-30px); /* Slide in from above */
+    animation: fadeInSlideDown 1.5s ease forwards; /* Animation to fade in and slide down */
+}
+
+/* Hero Paragraph Animation */
+.hero p {
+    font-size: 1.8rem;
+    margin-top: 80px;
+    color: white; /* Ensure text is highly visible */
+    z-index: 1;
+    position: relative;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add subtle shadow for more contrast */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Slide in from below */
+    animation: fadeInSlideUp 1.5s ease 0.5s forwards; /* Animation to fade in and slide up with delay */
+}
+
+/* Keyframes for h1 Animation */
+@keyframes fadeInSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for p Animation */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filter Section */
+/* Filter Section Container */
+.filter-section {
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeInScale 1.5s ease forwards; /* Smooth fade-in and scale animation */
+}
+
+/* Section Title with Animation */
+.filter-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #000000;
+    position: relative;
+    z-index: 1;
+    animation: popIn 1s ease forwards; /* Pop-in animation */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Filter Controls Container */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    animation: slideInUp 1s ease 0.5s forwards; /* Slide in from below with delay */
+}
+
+/* Dropdown and Buttons with 3D Hover Effect */
+.filter-controls select,
+.filter-controls button {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Button Specific Styling */
+.filter-controls button {
+    background: linear-gradient(to bottom, #1f1f1f, #000000);
+    color: white;
+    border: none;
+}
+
+/* Hover Effect with 3D Transformation */
+.filter-controls select:hover,
+.filter-controls button:hover {
+    transform: translateY(-5px) scale(1.05); /* Lift slightly and grow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+}
+
+/* Active State Effect */
+.filter-controls select:active,
+.filter-controls button:active {
+    transform: translateY(2px) scale(0.98); /* Push down slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduce shadow */
+}
+
+/* Keyframes for Section Fade-In */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Keyframes for Title Pop-In Effect */
+@keyframes popIn {
+    0% {
+        transform: scale(0.8) rotateX(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for Controls Slide-In Effect */
+@keyframes slideInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 250px; /* Set a fixed width for all images */
+    height: 250px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensure the image fills the container while maintaining aspect ratio */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better visibility */
+    transition: transform 0.3s ease; /* Optional: Smooth zoom effect on hover */
+}
+
+.product-card img:hover {
+    transform: scale(1.05); /* Optional: Slight zoom effect on hover */
+}
+
+
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+/* Call to Action Section */
+.cta-section {
+    background: linear-gradient(45deg, #4e944f, #1e5631); /* Gradient for a more dynamic background */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adding subtle shadow for depth */
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Uppercase for added emphasis */
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation for the header */
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ffffff; /* Lighter color for text for better contrast */
+    line-height: 1.5;
+    animation: slideUp 2s ease-in-out; /* Slide-up animation for the paragraph */
+}
+
+.cta-button {
+    background: #ffffff;
+    color: #000000;
+    padding: 15px 30px;
+    border-radius: 50px; /* Rounded edges for a more modern look */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.cta-button:hover {
+    background: #fffdfd;
+    transform: translateY(-3px) scale(1.05); /* Hover effect: slight upward movement */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+.cta-button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cta-button:hover:before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.cta-button span {
+    position: relative;
+    z-index: 1; /* Ensure the text is above the background effect */
+}
+
+/* Animation to fade in the header */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation to slide-up the paragraph */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

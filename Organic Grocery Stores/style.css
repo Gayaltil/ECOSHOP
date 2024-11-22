@@ -1,0 +1,241 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    background: url('images/05.jpg') no-repeat center center/cover;
+    padding: 2rem;
+    background-color: #81c784;
+    color: white;
+}
+/* Header Animation Styles */
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    animation: fadeInSlideDown 1s ease-out forwards; /* Animation */
+}
+.header p {
+    font-size: 1.5rem;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    animation: fadeInSlideDown 1s ease-out forwards;
+    animation-delay: 0.5s; /* Start after h1 */
+}
+
+/* Keyframes for Animation */
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Hero Section */
+.organic-hero {
+    text-align: center;
+    background: url('images/03.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 4rem 1rem;
+}
+/* Organic Hero Section with Animations */
+.organic-hero .hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    animation: fadeInSlideDown 1s ease-out forwards; /* Apply the animation */
+}
+
+.organic-hero .hero-content p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    animation: fadeInSlideDown 1s ease-out forwards;
+    animation-delay: 0.5s; /* Staggered animation for better effect */
+}
+
+/* Keyframes for Animation */
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Store List */
+.store-list {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+.store-list h2 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 1.5rem;
+}
+.store-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.store-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.store-card img {
+    width: 100%; /* Ensures the image spans the full width of its container */
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensures the image fills the dimensions without distortion */
+    border-radius: 10px; /* Rounded corners for aesthetic */
+    margin-bottom: 1rem;
+}
+
+.store-card h3 {
+    font-size: 1.4rem; /* Slightly larger font for prominence */
+    color: #4caf50; /* Eco-friendly green color */
+    font-weight: bold; /* Make the text stand out */
+    text-align: center; /* Align text centrally */
+    margin-top: 0.5rem;
+    text-transform: capitalize; /* Uniform text styling */
+    letter-spacing: 0.5px; /* Add spacing for elegance */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    position: relative; /* For additional decorative effects */
+}
+
+/* Hover Effect */
+.store-card h3:hover {
+    color: #000000; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Decorative Underline */
+.store-card h3::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: #81c784; /* Light green underline */
+    margin: 0.5rem auto 0;
+    transition: width 0.3s ease; /* Smooth animation for underline */
+}
+
+/* Underline Animation on Hover */
+.store-card h3:hover::after {
+    width: 80%; /* Expand underline on hover */
+    background: #000000; /* Match hover color */
+}
+
+.store-card p {
+    font-size: 1rem; /* Slightly larger font for better readability */
+    color: #555; /* Slightly darker shade for improved contrast */
+    margin-bottom: 1.5rem; /* Increased spacing for better layout */
+    line-height: 1.6; /* Improved readability with more line spacing */
+    font-weight: 300; /* Lighter font weight for a clean, modern look */
+    text-align: justify; /* Aligns text for a neat appearance */
+    transition: color 0.3s ease; /* Adds hover effect smoothness */
+}
+
+.store-card p:hover {
+    color: #4caf50; /* Change text color on hover for interactivity */
+}
+
+.store-card a {
+    padding: 0.5rem 1rem;
+    background: #4caf50;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+.store-card a:hover {
+    background: #66bb6a;
+}
+.store-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 3rem 1.5rem; /* Increase padding for a more spacious layout */
+    background: linear-gradient(to bottom, #f9fcf9, #e8f5e9); /* Add gradient for depth */
+    text-align: center;
+}
+.benefits h2 {
+    font-size: 2.5rem; /* Larger font size for prominence */
+    color: #000000;
+    margin-bottom: 2rem;
+    text-transform: uppercase; /* Add emphasis */
+    letter-spacing: 1.5px; /* Slight spacing for a polished look */
+    position: relative;
+}
+.benefits h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: #000000; /* Accent color underline */
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 50px; /* Smooth edges */
+}
+
+.benefits ul {
+    max-width: 800px; /* Wider layout for better readability */
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    display: grid; /* Grid layout for better spacing */
+    gap: 1rem;
+}
+.benefits ul li {
+    font-size: 1.1rem; /* Slightly larger for readability */
+    color: #444; /* Softer contrast for eye comfort */
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd; /* Subtle border for separation */
+    border-radius: 10px;
+    background: white; /* Clean background for each item */
+    display: flex;
+    align-items: center; /* Vertically center-align content */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+}
+.benefits ul li:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.benefits ul li::before {
+    content: "✔";
+    font-size: 1.5rem; /* Larger checkmark for emphasis */
+    color: #000000;
+    font-weight: bold;
+    margin-right: 1rem; /* Space between icon and text */
+}

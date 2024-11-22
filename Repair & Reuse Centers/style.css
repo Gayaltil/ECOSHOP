@@ -1,0 +1,491 @@
+/* General Styles */
+/* Body Styling with Zoom Animation */
+/* Body Styling with Full Background Cover */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/01.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the background from repeating */
+    color: #333;
+    min-height: 100vh; /* Ensure the body takes the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: zoomIn 10s infinite ease-in-out; /* Apply zoom animation to the background */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7); /* Dark shadow inset to give a shadow effect on background */
+}
+
+/* Animation to Zoom the Background Image Slowly */
+@keyframes zoomIn {
+    0% {
+        background-size: 100%;
+    }
+    50% {
+        background-size: 120%; /* Zoom in */
+    }
+    100% {
+        background-size: 100%; /* Zoom out back to original */
+    }
+}
+
+/* Optional: Adding Parallax effect (to move the background image slightly) */
+@keyframes moveBackground {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: center;
+    }
+}
+
+/* Optional Parallax Effect */
+body {
+    animation: moveBackground 30s infinite linear; /* Parallax effect */
+}
+
+/* Bottom Section with Animation */
+.bottom-animation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)); /* Fading gradient */
+    overflow: hidden;
+    z-index: 2; /* Ensures it stays on top of the background */
+}
+
+.bottom-animation .circle {
+    position: absolute;
+    bottom: -50px; /* Start below the visible area */
+    width: 50px;
+    height: 50px;
+    background-color: #2b7a34;
+    border-radius: 50%;
+    animation: floatUp 5s infinite ease-in-out;
+}
+
+.bottom-animation .circle:nth-child(2) {
+    left: 30%;
+    animation-delay: 1s;
+    width: 60px;
+    height: 60px;
+    background-color: #6abf69;
+}
+
+.bottom-animation .circle:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+    width: 40px;
+    height: 40px;
+    background-color: #8bcd8f;
+}
+
+.bottom-animation .circle:nth-child(4) {
+    left: 80%;
+    animation-delay: 3s;
+    width: 70px;
+    height: 70px;
+    background-color: #4ca858;
+}
+
+/* Floating Animation for Circles */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px); /* Move up */
+        opacity: 0; /* Fade out */
+    }
+}
+
+
+/* Base Styles for h1, h2, and h3 */
+h1, h2, h3 {
+    font-size: 3.5rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    letter-spacing: 1px;
+    color: #2b7a34; /* Adjust color if needed */
+    background-color: white; /* White background for the text */
+    padding: 10px 20px; /* Add padding around the text */
+    border-radius: 8px; /* Rounded corners for the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-transform: uppercase; /* Make text uppercase */
+    text-align: center; /* Center the text */
+    display: inline-block; /* Ensure the text behaves like a block but inline */
+    opacity: 0; /* Start with no opacity */
+    animation: fadeInUp 2s ease-in-out forwards; /* Apply fade-in-up animation */
+}
+
+/* Specific styles for each heading */
+h1 {
+    font-size: 4rem; /* Larger size for h1 */
+    color: #2b7a34; /* Greenish color for h1 */
+}
+
+h2, h3 {
+    font-size: 3rem; /* Slightly smaller size for h2 and h3 */
+    color: #000000; /* Different color for h2 and h3 */
+}
+
+/* Fade-in and slide-up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Move to normal position */
+    }
+}
+
+/* Additional gentle animation when hovering over the headings */
+h1:hover, h2:hover, h3:hover {
+    animation: fadeInUpHover 1s ease-in-out forwards; /* Apply hover effect */
+}
+
+/* Keyframes for hover effect */
+@keyframes fadeInUpHover {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+        background-color: #ffffff; /* Keep the background white */
+    }
+    100% {
+        transform: translateY(-5px); /* Slight upward movement */
+        opacity: 1; /* Keep fully visible */
+        background-color: #d4e4d2; /* Light eco-friendly background color */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow to highlight on hover */
+    }
+}
+
+/* Remove the animation on hover (so it's permanent) */
+h1, h2, h3 {
+    animation: fadeInUp 2s ease-in-out forwards; /* Permanent fade-in animation */
+    transition: all 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+/* Hover effect now doesn't animate but has a slight shadow and color change */
+h1:hover, h2:hover, h3:hover {
+    background-color: #d4e4d2; /* Eco-friendly light green background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transform: translateY(-5px); /* Slight upward movement */
+}
+
+  /* Increased size for the search section */
+/* Search section styles with added animation */
+.search-section {
+    text-align: center;
+    padding: 60px 40px; /* Increased padding for larger space */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Light background for contrast */
+    
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    position: relative; /* To position the animated circles */
+    overflow: hidden; /* Hide any part of the circles that go outside the section */
+}
+
+/* Create animated circles using pseudo-elements */
+.search-section::before, .search-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%; /* Makes the shape circular */
+    background-color: rgba(0, 0, 0, 0.3); /* Light teal color for circles */
+    animation: moveCircles 10s infinite ease-in-out; /* Apply animation to circles */
+}
+
+.search-section::before {
+    width: 100px; /* Circle size */
+    height: 100px;
+    top: 20%; /* Position the circle */
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.search-section::after {
+    width: 80px; /* Slightly smaller circle */
+    height: 80px;
+    top: 50%; /* Position the second circle */
+    left: 50%;
+    animation-delay: 5s;
+}
+
+/* Keyframes to move the circles around */
+@keyframes moveCircles {
+    0% {
+        transform: translate(0, 0); /* Starting position */
+    }
+    25% {
+        transform: translate(50px, -100px); /* Move up and right */
+    }
+    50% {
+        transform: translate(200px, 50px); /* Move right and down */
+    }
+    75% {
+        transform: translate(-50px, 100px); /* Move left and down */
+    }
+    100% {
+        transform: translate(0, 0); /* Back to the starting position */
+    }
+}
+
+
+/* Increased size for the search container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increased gap between input and button */
+    align-items: center;
+}
+
+/* Increased size for the input field */
+#search-input {
+    padding: 15px 25px; /* Increased padding */
+    font-size: 1.2rem; /* Larger text for better readability */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ccc;
+    width: 350px; /* Wider input field */
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Increased size and style for the search button */
+#search-btn {
+    padding: 15px 30px; /* Larger padding for the button */
+    background-color: #000000; /* Green background */
+    color: white;
+    font-size: 1.2rem; /* Larger font size */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the search button */
+#search-btn:hover {
+    background-color: #000000; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Focus effect for the search input */
+#search-input:focus {
+    border: 1px solid #000000; /* Green border on focus */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Green glow effect */
+    outline: none; /* Remove default focus outline */
+}
+
+  /* Center List Styles */
+ /* Center List Styles */
+.center-list {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    margin-top: 100px; /* Adjusted top margin for better alignment */
+    animation: fadeIn 2s ease-out; /* Animation to fade in the list */
+    transform: perspective(1500px); /* 3D effect setup */
+   
+}
+
+/* Fade-in animation for the center list */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* List style */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* List item styling */
+li {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Increased shadow for 3D effect */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+    transform-style: preserve-3d; /* Ensure 3D effect is preserved on hover */
+    display: flex; /* Flex layout for image and text */
+    align-items: center; /* Center the content vertically */
+    justify-content: space-between; /* Space between image and text */
+}
+
+/* Hover effect with 3D flip and scaling */
+li:hover {
+    transform: rotateY(10deg) scale(1.05); /* Slight rotation and scale on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for depth */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+}
+
+/* Add a smooth background color change on hover */
+li:hover {
+    background-color: #e0f7fa; /* Light teal background on hover */
+}
+
+/* Add animation to list items */
+@keyframes listItemAnimation {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply list item animation with slight delay for staggered effect */
+li:nth-child(1) {
+    animation: listItemAnimation 0.5s ease-out;
+}
+
+li:nth-child(2) {
+    animation: listItemAnimation 0.6s ease-out;
+}
+
+li:nth-child(3) {
+    animation: listItemAnimation 0.7s ease-out;
+}
+
+li:nth-child(4) {
+    animation: listItemAnimation 0.8s ease-out;
+}
+
+li:nth-child(5) {
+    animation: listItemAnimation 0.9s ease-out;
+}
+
+/* Image styling */
+/* Styling for the center list */
+#center-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+}
+.center-item {
+    background: linear-gradient(45deg, #464545, #696969, #a3a3a3, #f1f1f1);
+    background-size: 400% 400%; /* Ensures the gradient is large enough to animate */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex; /* Arrange image and content side by side */
+    align-items: center;
+    justify-content: flex-start; /* Ensure content aligns to the left side */
+    width: 600px; /* Full box width */
+    min-height: 120px; /* Flexible height */
+    padding: 15px; /* Padding for spacing */
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: colorShift 10s ease infinite; /* Apply the moving color animation */
+}
+
+.center-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe to animate the gradient movement */
+@keyframes colorShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Optional: Ensure text inside is styled */
+.center-item .center-info {
+    flex: 1;
+    padding-left: 20px; /* Add some spacing from the image */
+}
+
+.center-item img {
+    width: 80px; /* Adjust image size */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%; /* If the image is circular */
+}
+
+
+/* Styling for the image in the full box */
+li img {
+    width: 120px; /* Larger image size */
+    height: 120px; /* Fixed height for consistency */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 12px; /* Slightly rounded corners for the image */
+    margin: 15px; /* Add spacing inside the box */
+}
+
+/* Content section inside the full box */
+.center-info {
+    padding: 15px;
+    text-align: left;
+    flex: 1; /* Allow content to take up remaining space */
+}
+
+.center-info h4 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.center-info p {
+    font-size: 1rem;
+    color: #000000;
+    margin: 5px 0;
+}
+
+/* Text styling within the list item */
+li .text {
+    flex-grow: 1; /* Allow text to grow and fill available space */
+    text-align: left; /* Align text to the left */
+}
+
+/* List item title */
+li .text h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* List item description */
+li .text p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+    line-height: 1.4;
+}

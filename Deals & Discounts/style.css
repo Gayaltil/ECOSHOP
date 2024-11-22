@@ -1,0 +1,416 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body and font settings */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+#hero-section {
+    background: url('images/01.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 40px;
+    position: relative; /* Ensures overlay can be added */
+}
+
+#hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for better text visibility */
+    z-index: 1; /* Ensures overlay is behind the text */
+}
+
+#hero-section .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative; /* Ensures content stays on top of overlay */
+    z-index: 2;
+}
+
+#hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adds text shadow for contrast */
+}
+
+#hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adds text shadow for contrast */
+}
+
+.cta-button {
+    background-color: #151414; /* Dark background color */
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border 0.3s ease; /* Add transition for border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds shadow to the button */
+    border: 2px solid transparent; /* Initial border is transparent */
+}
+
+.cta-button:hover {
+    background-color: #191b19; /* Slightly lighter shade on hover */
+    transform: translateY(-4px); /* Button moves up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Darker and more prominent shadow on hover */
+    border: 2px solid #ffffff; /* Green glowing border on hover */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Adds subtle glowing text effect */
+}
+
+.cta-button:active {
+    transform: translateY(1px); /* Slight downward effect when clicked */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reverts to the normal shadow */
+    border: 2px solid #4CAF50; /* Keep the glowing border when clicked */
+}
+
+.cta-button:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.8); /* Focus effect with a green glow */
+    border: 2px solid #4CAF50; /* Keep the border glowing */
+}
+
+/* Filter Section */
+/* Filter Section */
+#filter-section {
+    background-color: #d4e1c1; /* Soft light green background */
+    padding: 20px; /* Increased padding for better spacing */
+    margin-bottom: 20px; /* Slightly reduced margin */
+    border-radius: 12px; /* More rounded corners for a smoother look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for a more pronounced 3D effect */
+    width: 50%; /* Reduced width for a compact layout */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 100px; /* Top margin for spacing */
+    background-image: linear-gradient(145deg, #e0e8d9, #d4e1c1); /* Soft gradient background for depth */
+    animation: fadeInUp 1s ease-out; /* Fade-in and move up effect */
+}
+
+/* Subtle fade-in and upward animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* Hover effect with soft, subtle lift */
+#filter-section:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Softer shadow on hover for more depth */
+    background-color: #c2d7a5; /* Slight color change on hover for emphasis */
+}
+
+/* Labels */
+#filter-section label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #000000; /* Dark green color for label text */
+    transition: color 0.3s ease; /* Smooth transition for label color */
+}
+
+/* Input and Select Fields */
+#filter-section select,
+#filter-section input {
+    padding: 12px;
+    margin: 10px 0; /* Reduced margin for compact design */
+    font-size: 1rem;
+    border: 2px solid #000000; /* Soft green border */
+    border-radius: 8px; /* Rounded corners */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, filter 0.3s ease; /* Smooth transitions */
+}
+
+/* Focus and Hover Effects for Select and Input */
+#filter-section select:focus,
+#filter-section input:focus {
+    border: 2px solid #000000; /* Brighter green border on focus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Green shadow on focus */
+    transform: translateY(-2px); /* Subtle lift effect on focus */
+    filter: brightness(110%); /* Slightly brightens input fields on focus */
+}
+
+#filter-section select:hover,
+#filter-section input:hover {
+    border: 2px solid #000000; /* Brighter green border on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Lighter green shadow on hover */
+    transform: translateY(-1px); /* Subtle lift effect on hover */
+}
+
+/* Animation for smooth transition on hover and focus */
+#filter-section select,
+#filter-section input {
+    transition: all 0.3s ease; /* Apply a smooth transition for hover and focus */
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    #filter-section {
+        padding: 12px; /* Reduced padding for smaller screens */
+        margin-bottom: 15px; /* Adjust margin */
+        width: 90%; /* Wider filter section on mobile */
+    }
+
+    #filter-section select,
+    #filter-section input {
+        font-size: 0.9rem; /* Slightly smaller font size for mobile */
+    }
+}
+
+#deals-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Consistent gap between items */
+    margin: 100px auto; /* Center align the grid */
+    max-width: 1200px; /* Restrict grid width for better layout */
+    padding: 0 20px; /* Add padding for smaller screens */
+    animation: fadeInGrid 1s ease-out; /* Smooth fade-in animation */
+}
+
+/* Animation for grid items appearing */
+@keyframes fadeInGrid {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Items start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+/* Deals List Container */
+#deals-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Consistent gap between items */
+    margin: 100px auto; /* Center align the grid */
+    max-width: 1200px; /* Restrict grid width for better layout */
+    padding: 20px; /* Add padding around the container */
+    background: linear-gradient(120deg, #d4f1f9, #e1f5e9, #d7e8f7, #f5f3ff); /* Enhanced gradient background */
+    background-size: 400% 400%; /* Large size for smoother animation */
+    border-radius: 15px; /* Rounded corners for the container */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    animation: gradientFlow 10s ease infinite, circleMove 5s linear infinite; /* Infinite background and circle animation */
+}
+
+/* Enhanced animation for background gradient */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Circle Moving Animation */
+@keyframes circleMove {
+    0% {
+        top: 10%; /* Starting position at top */
+        left: 10%; /* Starting position on left */
+    }
+    25% {
+        top: 10%; /* Stay at top */
+        left: 90%; /* Move to the right */
+    }
+    50% {
+        top: 90%; /* Move down */
+        left: 90%; /* Stay at the right */
+    }
+    75% {
+        top: 90%; /* Stay at the bottom */
+        left: 10%; /* Move to the left */
+    }
+    100% {
+        top: 10%; /* Back to the top */
+        left: 10%; /* Back to the left */
+    }
+}
+
+/* Circle element */
+#deals-list .circle {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    background-color: #2E7D32; /* Eco-friendly green */
+    border-radius: 50%; /* Make it a circle */
+    animation: circleMove 5s linear infinite; /* Apply the circle animation */
+    z-index: -1; /* Send it behind the grid items */
+}
+
+/* Animation for grid items appearing */
+@keyframes fadeInGrid {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Items start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+
+/* Heading Styling */
+#deals-list h2 {
+    font-size: 3rem; /* Larger font size for prominence */
+    color: #000000; /* Eco-friendly green */
+    text-align: center; /* Center align the heading */
+    margin-bottom: 40px; /* Space between heading and grid */
+    text-transform: uppercase; /* Make the text all uppercase */
+    font-weight: bold; /* Make the text bold */
+    letter-spacing: 3px; /* Add spacing between letters */
+    position: relative; /* For decorative elements */
+    animation: fadeInGrid 1s ease-out; /* Fade-in effect for the heading */
+}
+
+/* Decorative underline effect for heading */
+#deals-list h2::after {
+    content: '';
+    display: block;
+    width: 120px; /* Larger underline width */
+    height: 5px; /* Thickness of the underline */
+    background-color: #000000; /* Green underline */
+    margin: 15px auto 0; /* Center the underline below the heading */
+    border-radius: 4px; /* Rounded edges for the line */
+}
+
+/* Add hover animation for heading */
+#deals-list h2:hover {
+    color: #000000; /* Darker green on hover */
+    transform: scale(1.1); /* Slightly enlarge the heading */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+}
+/* Individual Deal Item */
+.deal-item {
+    background-color: #ffffff;
+    padding: 20px; /* Padding inside each card */
+    border-radius: 15px; /* Rounded corners for a modern look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth hover transition */
+    position: relative; /* For layered effects */
+    overflow: hidden; /* Clipping for inner animations */
+}
+
+/* Add glowing border effect on hover */
+.deal-item:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover effect */
+    background-color: #f0fdf0; /* Slightly lighter background on hover */
+}
+
+/* Inner highlight effect for deal items */
+.deal-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 70%);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 0; /* Keep it behind the content */
+}
+
+/* Trigger the inner highlight on hover */
+.deal-item:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Header styling for deal items */
+.deal-item h3 {
+    font-size: 1.7rem;
+    color: #000000; /* Neutral black for text */
+    margin-bottom: 10px;
+    transition: color 0.3s ease; /* Smooth color transition */
+    z-index: 1; /* Ensure it's above the highlight */
+}
+
+.deal-item h3:hover {
+    color: #1B5E20; /* Darker green for hover effect */
+}
+
+/* Paragraph styling for deal items */
+.deal-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555; /* Neutral color for text */
+    transition: transform 0.3s ease; /* Adds hover interaction */
+    z-index: 1;
+}
+
+/* Bold highlight for deal price or important info */
+.deal-item span {
+    font-weight: bold;
+    color: #D32F2F; /* Bright red for emphasis */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D look */
+    z-index: 1;
+}
+
+/* Subtle bounce effect when hovered */
+.deal-item:hover span {
+    transform: translateY(-3px); /* Slight upward movement */
+    animation: bounce 0.5s ease-out; /* Bounce animation */
+}
+
+/* Keyframes for bounce effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #deals-list {
+        gap: 15px; /* Reduce gap for smaller screens */
+        margin-top: 50px; /* Adjust top margin for smaller screens */
+    }
+
+    .deal-item {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .deal-item h3 {
+        font-size: 1.4rem; /* Adjust font size */
+    }
+
+    .deal-item p {
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}
+

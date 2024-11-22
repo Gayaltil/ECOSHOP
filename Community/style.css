@@ -1,0 +1,313 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling with Background Image */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('images/01.jpg') no-repeat center center/cover;
+    background-size: cover; /* Ensure the background image covers the entire body */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling with 3D Effects and Animation */
+/* Header Styling with 3D Effects and Animation */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(120deg, #cfdad9, #949d9c);
+    color: rgb(0, 0, 0);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* Create Three Circles for Animation */
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(50, 52, 51, 0.6);
+    animation: circleAnimation 10s infinite ease-in-out;
+}
+
+/* Circle 1 */
+header::before {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+/* Circle 2 */
+header::after {
+    width: 180px;
+    height: 180px;
+    top: 30%;
+    left: 45%;
+    animation-delay: 3s;
+}
+
+/* Circle 3 */
+header div.circle-three {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(244, 67, 54, 0.6);
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 70%;
+    animation: circleAnimation 12s infinite ease-in-out;
+    animation-delay: 6s;
+}
+
+/* Keyframes for Circle Animation */
+@keyframes circleAnimation {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(100px, 50px) scale(1.2);
+    }
+    50% {
+        transform: translate(200px, 100px) scale(1.4);
+    }
+    75% {
+        transform: translate(300px, 50px) scale(1.2);
+    }
+    100% {
+        transform: translate(400px, 0) scale(1);
+    }
+}
+
+
+/* Header Text Styling */
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    transform: rotateX(5deg);
+    animation: textFloat 4s infinite ease-in-out alternate;
+}
+
+header p {
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transform: rotateX(5deg);
+    animation: textFloat 4s infinite ease-in-out alternate-reverse;
+}
+
+/* Floating Text Animation */
+@keyframes textFloat {
+    0% {
+        transform: rotateX(5deg) translateY(0);
+    }
+    100% {
+        transform: rotateX(5deg) translateY(-10px);
+    }
+}
+
+/* Discussion Section with Background Image and 3D Effects */
+#discussion {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url('images/01.jpg') no-repeat center center/cover;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+}
+
+#discussion h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: rotateX(5deg);
+    animation: floatText 4s infinite ease-in-out alternate;
+}
+
+/* Discussion List Item Styling with Advanced Hover Effects */
+#discussion li {
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, filter 0.3s ease;
+    transform: rotateX(5deg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.75));
+    filter: brightness(0.95);
+}
+
+#discussion li:hover {
+    transform: translateY(-8px) rotateX(0);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #80cbc4, #4db6ac);
+    filter: brightness(1.1);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Discussion Section Title Styling */
+#discussion h3 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Share Your Idea Section with 3D Effects */
+#share-idea h2 {
+    text-align: center;
+    font-size: 3rem; /* Larger font size for more impact */
+    font-weight: 700; /* Make the text bold */
+    margin-bottom: 20px;
+    color: #ffffff; /* White color for contrast */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased letter spacing for emphasis */
+    text-shadow: 
+        4px 4px 12px rgba(0, 0, 0, 0.5),  /* Stronger shadow for more depth */
+        0px 0px 20px rgba(0, 0, 0, 0.4); /* Glowing shadow effect for extra emphasis */
+    animation: textFloat 3s ease-in-out infinite alternate;
+    
+    /* 3D Effects */
+    transform: perspective(800px) rotateX(10deg) rotateY(5deg); /* Adds depth and rotation */
+    transform-style: preserve-3d; /* Maintains 3D transformations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional: Add a hover effect to enhance the 3D feel */
+#share-idea h2:hover {
+    transform: perspective(800px) rotateX(15deg) rotateY(10deg) scale(1.05); /* More rotation on hover */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for more depth */
+}
+
+
+/* Idea Form with 3D Effects and Smooth Animation */
+#idea-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+    transform-style: preserve-3d;
+    animation: formAnimation 1s ease-out;
+}
+
+/* Form Hover Effect with 3D transformation */
+#idea-form:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Slight vertical move without rotation for stability */
+}
+
+/* Form Animation */
+@keyframes formAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.95); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End with normal size */
+    }
+}
+
+/* Form Elements with Color and Focus Effects */
+#idea-form input, 
+#idea-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #80cbc4;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    transform-style: preserve-3d;
+    animation: inputAnimation 1s ease-out; /* Apply animation to form fields */
+}
+
+/* Focus Effects with 3D Animation on Input Fields */
+#idea-form input:focus,
+#idea-form textarea:focus {
+    border-color: #00796b;
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.5);
+    transform: scale(1.02); /* Slight 3D effect when focused */
+}
+
+/* Input Animation */
+@keyframes inputAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.95); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End with normal size */
+    }
+}
+
+/* Button with Hover Animation and 3D effects */
+#idea-form button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    animation: buttonAnimation 1s ease-out; /* Button animation */
+}
+
+#idea-form button:hover {
+    background-color: #004d40;
+    transform: translateY(-2px); /* Minor hover effect without rotation */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Animation */
+@keyframes buttonAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px); /* Start slightly smaller and shifted down */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0); /* End with normal size and position */
+    }
+}
+
+/* Hover Effects for Input Fields */
+#idea-form input:focus,
+#idea-form textarea:focus,
+#idea-form button:focus {
+    outline: none;
+    border-color: #004d40;
+    box-shadow: 0 0 8px rgba(0, 121, 107, 0.5);
+    transform: scale(1.05); /* Subtle zoom effect on focus */
+}

@@ -1,0 +1,933 @@
+/* Universal Box-Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #174128, #88e97b);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 2em;
+  font-weight: bold;
+  color: #a4d4ae;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo::before {
+  content: '🌍'; /* Decorative globe icon before logo */
+  font-size: 1.5em;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+}
+
+header nav ul li a {
+  color: #a4d4ae;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s, transform 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+header nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #a4d4ae;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Color Variables */
+:root {
+  --bg-color: #2b3f33;
+  --hover-bg-color: #354b3d;
+  --border-color-hover: #89c498;
+  --input-color: #a4d4ae;
+  --button-bg-color: #89c498;
+  --button-hover-color: #a4d4ae;
+  --placeholder-color: #b6d5be;
+  --focus-shadow: rgba(136, 204, 157, 0.6);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+  padding: 12px 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.4s, box-shadow 0.4s, transform 0.3s;
+  border: 2px solid transparent;
+  max-width: 500px; /* Wider bar for modern look */
+  margin: 20px auto; /* Center align */
+}
+
+.search-bar:hover {
+  background: var(--hover-bg-color);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: var(--input-color);
+  padding: 12px 15px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  letter-spacing: 0.5px; /* Slightly spaced text */
+}
+
+.search-bar input::placeholder {
+  color: var(--placeholder-color);
+  opacity: 0.8;
+  transition: color 0.3s;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 10px var(--focus-shadow);
+}
+
+.search-bar button {
+  background: var(--button-bg-color);
+  border: none;
+  color: #174128;
+  padding: 12px;
+  margin-left: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.search-bar button:hover {
+  background: var(--button-hover-color);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.search-bar button:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+.search-bar button::before {
+  content: '🔍';
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .search-bar {
+    padding: 10px 16px;
+    max-width: 90%; /* Adjust to screen size */
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  header nav ul {
+    gap: 20px;
+  }
+
+  header .logo {
+    font-size: 1.5em;
+  }
+}
+
+
+/* Hero Section Styling */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: backgroundTransition 15s infinite; /* Background transition animation */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+  z-index: 1;
+}
+
+@keyframes backgroundTransition {
+  0% { background: url('images/06.jpg') no-repeat center center/cover; }
+  33% { background: url('images/07.jpg') no-repeat center center/cover; }
+  66% { background: url('images/08.jpg') no-repeat center center/cover; }
+  100% { background: url('images/09.jpg') no-repeat center center/cover; }
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #d9f99d;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3em; /* Slightly larger font size for emphasis */
+    font-weight: 600; /* Increased thickness for bold text */
+    max-width: 600px;
+    color: #000000; /* Retain the text color */
+    z-index: 2;
+    margin: 0 0 30px;
+    line-height: 1.6; /* Slightly more spacing between lines for readability */
+    text-shadow: 
+        0.5px 0.5px 0 #fff, 
+        -0.5px -0.5px 0 #fff,
+        0.5px -0.5px 0 #fff,
+        -0.5px 0.5px 0 #fff; /* Subtle white border effect around the text */
+    animation: 
+        pulseBorder 1.5s ease-in-out infinite, /* Pulsating border animation */
+        fadeIn 2s ease-out forwards; /* Fade-in animation */
+}
+
+/* Animation Keyframes */
+@keyframes pulseBorder {
+    0% {
+        text-shadow: 
+            0.5px 0.5px 0 #fff, 
+            -0.5px -0.5px 0 #fff,
+            0.5px -0.5px 0 #fff,
+            -0.5px 0.5px 0 #fff; /* Initial subtle white border */
+    }
+    50% {
+        text-shadow: 
+            1px 1px 5px #fff, 
+            -1px -1px 5px #fff,
+            1px -1px 5px #fff,
+            -1px 1px 5px #fff; /* Slightly larger white border for pulsating effect */
+    }
+    100% {
+        text-shadow: 
+            0.5px 0.5px 0 #fff, 
+            -0.5px -0.5px 0 #fff,
+            0.5px -0.5px 0 #fff,
+            -0.5px 0.5px 0 #fff; /* Return to initial subtle white border */
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in original position */
+    }
+}
+
+
+
+
+  
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+}
+
+.hero-buttons button {
+  background-color: #ffffff;
+  color: #1b4332;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons button:hover {
+  background-color: #b7d89e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .search-bar input {
+    width: 180px;
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Footer Links as Column for Small Screens */
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .hero {
+    height: 80vh; /* Adjust height for small screens */
+  }
+}
+
+  
+  /* General Section Styling */
+  section {
+    padding: 80px 40px; /* Increased padding for more space around the content */
+    text-align: center;
+    background: url('images/01.jpg') no-repeat center center/cover; /* Single background image */
+    background-size: cover;
+    background-position: center;
+    margin: 40px 0; /* Increased margin to add more space between sections */
+    border-radius: 20px; /* Slightly more rounded corners for a softer look */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Increased shadow for more depth */
+    position: relative;
+    overflow: hidden;
+    animation: backgroundPan 30s ease-in-out infinite; /* Smooth pan animation for background */
+    min-height: 600px; /* Ensure the section has a minimum height */
+    max-width: 100%; /* Ensures the section can expand fully within container */
+    width: 100%; /* Ensures full width coverage */
+    transition: background-image 1s ease-in-out; /* Smooth background image transition */
+  }
+  
+  @keyframes backgroundPan {
+    0% {
+      background-position: center center;
+    }
+    50% {
+      background-position: 50% 50%; /* Smooth transition across the section */
+    }
+    100% {
+      background-position: center center;
+    }
+  }
+  
+  /* Additional style for a different background when hovering over the section */
+  section:hover {
+    background-image: url('images/02.jpg'); /* New background image on hover */
+    background-size: cover; /* Ensure the new image covers the section area */
+  }
+  
+    
+  section h2 {
+    margin-top: 80px;
+    font-size: 2em;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  section p {
+    font-size: 1.1em;
+    color: #000000;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+  
+  /* Specific Styles for Different Sections */
+  
+  /* Product Categories */
+  .product-categories {
+    background-color: #f1faee; /* Light, clean background */
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-categories .categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 100px;
+  }
+  
+  .product-categories .category {
+    background: linear-gradient(135deg, #a8e6cf, #d9f99d); /* Gradient background */
+    padding: 30px;
+    border-radius: 15px;
+    width: 180px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #1b4332;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .product-categories .category:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #d9f99d, #a8e6cf);
+  }
+  
+  /* Optional: Add decorative element (e.g., icon or shape) */
+  .product-categories .category::before {
+    content: '🌱'; /* Example icon */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: rgba(27, 67, 50, 0.15); /* Light, semi-transparent icon */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    .product-categories .category {
+      width: 100%;
+      font-size: 1.1em;
+    }
+  }
+  
+  /* Eco-Friendly Brands */
+  .eco-brands {
+    background-color: #f0fdf4; /* Softer green tint background */
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .eco-brands .brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 100px;
+  }
+  
+  .eco-brands .brand {
+    background: linear-gradient(135deg, #d0f4de, #e6f4e3); /* Gradient for subtle dimension */
+    padding: 60px 35px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #1b4332;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 120px; /* Ensures consistent size */
+  }
+  
+  .eco-brands .brand:hover {
+    transform: translateY(-8px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #e6f4e3, #d0f4de);
+  }
+  
+  /* Optional Decorative Icon */
+  .eco-brands .brand::before {
+    content: '🌿'; /* Leaf icon for an eco-themed touch */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5em;
+    color: rgba(27, 67, 50, 0.15); /* Light, semi-transparent */
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    .eco-brands .brand {
+      width: 100%;
+      font-size: 1em;
+      padding: 15px 20px;
+    }
+  }
+  
+  
+  /* Deals and Discounts */
+  .deals {
+    background-color: #f0f4fa; /* Softer background for the carousel */
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* Required to position buttons within */
+  }
+  
+  .deals .carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 40px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; /* Smooth scrolling for a better experience */
+    padding-bottom: 10px;
+    margin-top: 100px;
+    justify-content: center;
+  }
+  
+  .deals .deal {
+    background: linear-gradient(145deg, #e0f2ff, #cfe4ff); /* Soft gradient for card */
+    padding: 25px;
+    border-radius: 15px;
+    min-width: 240px;
+    scroll-snap-align: start;
+    font-weight: 600;
+    color: #333d51;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d1e3f2;
+  }
+  
+  .deals .deal:hover {
+    transform: translateY(-8px); /* Elevated hover effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #cfe4ff, #e0f2ff);
+  }
+  
+  /* Optional Icon for Extra Visual Appeal */
+  .deals .deal::before {
+    content: '🔥'; /* Add an optional icon, like a fire emoji for hot deals */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.3em;
+    color: rgba(255, 69, 0, 0.15);
+  }
+  
+  /* Centered navigation buttons */
+  .deals .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d1e3f2;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .deals .carousel-button:hover {
+    background-color: #b8d0e5;
+  }
+  
+  .deals .carousel-button.left {
+    left: 10px;
+  }
+  
+  .deals .carousel-button.right {
+    right: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .deals .deal {
+      min-width: 180px;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  }
+  
+  
+  
+  /* Map Section */
+  .map-section {
+    background-color: #f0f8ff; /* Softer background for a calming feel */
+    padding: 20px;
+    text-align: center; /* Center aligns content within the section */
+  }
+  
+  .map-section input {
+    padding: 12px;
+    border-radius: 25px;
+    border: 2px solid #cce0ff; /* Slightly thicker border for better visibility */
+    width: 280px; /* Slightly larger input field */
+    margin-bottom: 20px;
+    margin-top: 80px;
+    outline: none;
+    font-size: 1rem; /* Improved readability */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    
+  }
+  
+  .map-section input:focus {
+    border-color: #68a4ff; /* Highlight input on focus */
+    box-shadow: 0 0 8px rgba(104, 164, 255, 0.5); /* Add subtle glow effect */
+  }
+  
+  .map-section button {
+    background-color: #40916c; /* Updated to a vibrant green */
+    color: #ffffff;
+    padding: 17px 10px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem; /* Matches input text size */
+    font-weight: 600; /* Slightly bold text */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .map-section button:hover {
+    background-color: #2a5a40; /* Darker green on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+  
+  .map-section button:active {
+    background-color: #1e3d2c; /* Darker shade on click */
+    transform: scale(1); /* Return to original size */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Subtle pressed effect */
+  }
+  
+  /* Sustainable Living Tips */
+  .tips {
+    background-color: #f8fff5; /* Softer pastel background for a fresh look */
+    padding: 30px; /* Added padding for better spacing */
+    text-align: center;
+  }
+  
+  .tips .articles {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tips .article {
+    background: linear-gradient(135deg, #c9e89d, #e6f5c1); /* Gradient for a dynamic appearance */
+    padding: 20px;
+    border-radius: 15px; /* Softer, rounded corners */
+    width: 200px;
+    font-weight: 600;
+    text-align: center; /* Center-align text within each article */
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+    margin-top: 80px;
+  }
+  
+  .tips .article:hover {
+    transform: translateY(-8px) scale(1.03); /* Slight scale effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for focus */
+    background: linear-gradient(135deg, #b7e389, #dff5a9); /* Slightly brighter gradient on hover */
+  }
+  
+  .tips .article:active {
+    transform: scale(0.98); /* Slight shrinking effect on click */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
+  }
+  
+  /* Community Section */
+  .community {
+    background-color: #f0ffe8; /* Softer, refreshing green background */
+    padding: 40px; /* Added padding for spacing */
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .community button {
+    background: linear-gradient(135deg, #cdeba5, #a4d99f); /* Subtle gradient for depth */
+    color: #174428;
+    border: 2px solid #d2f0c1; /* Soft border for enhanced structure */
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+    margin-top: 50px;
+  }
+  
+  .community button:hover {
+    background: linear-gradient(135deg, #b7d89e, #9dcf91); /* Brightened gradient on hover */
+    transform: translateY(-3px) scale(1.05); /* Lifted and slightly enlarged on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
+  .community button:active {
+    transform: scale(0.98); /* Slight shrink effect on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow on click */
+  }
+  
+  
+  
+  /* Footprint Banner */
+  .footprint-banner {
+    background-color: #fff7e6; /* Lighter, more airy background for the banner */
+    padding: 40px 20px; /* Added padding for more space and breathing room */
+    text-align: center;
+    border-radius: 15px; /* Soft rounded corners for the banner */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    
+  }
+  
+  .footprint-banner button {
+    background: linear-gradient(135deg, #f1d26d, #e9c46a); /* Subtle gradient for the button */
+    color: #2f2d29; /* Darker text for better contrast */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for button */
+    margin-top: 150px;
+  }
+  
+  .footprint-banner button:hover {
+    background: linear-gradient(135deg, #dda15e, #f0ab5d); /* Brightened gradient for hover effect */
+    transform: translateY(-3px) scale(1.05); /* Lift and slight zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  .footprint-banner button:active {
+    transform: scale(0.98); /* Slight shrink effect on button click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow when active */
+  }
+  
+  /* Newsletter Section */
+  .newsletter {
+    background-color: #fff8d9; /* Lighter, fresher background for the section */
+    padding: 40px 20px; /* Added padding to create space around the elements */
+    border-radius: 15px; /* Soft, rounded corners for the container */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .newsletter h2 {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+    
+  }
+  
+  .newsletter input[type="email"] {
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid #f7e8b5;
+    width: 280px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease;
+    margin-top: 70px
+  }
+  
+  .newsletter input[type="email"]:focus {
+    box-shadow: 0 0 10px rgba(233, 196, 106, 0.6); /* Subtle glow effect on focus */
+    border-color: #e9c46a; /* Color change on focus */
+  }
+  
+  .newsletter button {
+    background: linear-gradient(135deg, #f1d26d, #e9c46a); /* Gradient background for the button */
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the button */
+  }
+  
+  .newsletter button:hover {
+    background: linear-gradient(135deg, #dda15e, #f0ab5d); /* Brightened gradient on hover */
+    transform: translateY(-3px) scale(1.05); /* Lift and zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  .newsletter button:active {
+    transform: scale(0.98); /* Slight shrink effect on button click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduced shadow when active */
+  }
+  
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Increased spacing for a more airy feel */
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #174128, #88e97b);
+    color: #d9f99d;
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.15); /* Elevated footer shadow for a premium look */
+    
+   
+  }
+  
+  .footer-links a {
+    color: #d9f99d;
+    text-decoration: none;
+    font-size: 1.2em; /* Slightly larger font for readability */
+    font-weight: 600;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle translucent background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border for better structure */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Gentle shadow for button effect */
+    transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer-links a::before {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .footer-links a:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) rotate(15deg); /* Adds slight motion to the icon */
+  }
+  
+  .footer-links a:hover {
+    background: #d9f99d; /* Bright hover background */
+    color: #1b4332; /* Contrast text on hover */
+    transform: scale(1.1); /* Larger hover effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+  }
+  
+  .footer-links a:active {
+    transform: scale(0.95); /* Subtle pressed effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduced shadow for pressed effect */
+  }
+  
+  .footer-links a::after {
+    content: ''; /* Decorative line effect */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: #1b4332;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .footer-links a:hover::after {
+    width: 100%; /* Expands line across the bottom of the link */
+    left: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column; /* Stacks links vertically for smaller screens */
+      gap: 20px;
+      padding: 30px 15px;
+    }
+  
+    .footer-links a {
+      font-size: 1em; /* Reduces font size for smaller screens */
+      padding: 12px 18px;
+    }
+  }
+  
+  
+
+  
+  
+  
+  

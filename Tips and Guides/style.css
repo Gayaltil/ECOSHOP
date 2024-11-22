@@ -1,0 +1,258 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Hero Section */
+/* Hero Section with Background Image and 3D Effects */
+.hero {
+    background: url('images/01.jpg') no-repeat center center/cover; /* Set your background image here */
+    color: white;
+    text-align: center;
+    padding: 200px 20px;
+    border-bottom: 4px solid #000000;
+    position: relative;
+    overflow: hidden; /* Ensures elements don't overflow */
+    perspective: 1000px; /* Add perspective for 3D effect */
+    animation: zoomIn 15s infinite ease-in-out; /* Add animation to background */
+
+}
+
+/* 3D Text Effect for the Header */
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    transform: rotateX(15deg); /* 3D rotation */
+    animation: floatUp 4s infinite ease-in-out; /* Add text floating animation */
+    color: white;
+}
+
+/* Adjust paragraph styling */
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-out 1s forwards; /* Fade-in animation */
+    color: white;
+}
+
+/* Keyframe for zoom-in background effect */
+@keyframes zoomIn {
+    0% {
+        background-size: 120%;
+    }
+    50% {
+        background-size: 130%;
+    }
+    100% {
+        background-size: 120%;
+    }
+}
+
+/* Floating Animation for Hero Heading */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotateX(15deg); /* Start in place */
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-20px) rotateX(10deg); /* Move up */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) rotateX(15deg); /* Return to original position */
+        opacity: 0.8;
+    }
+}
+
+/* Fade-In Animation for Paragraph */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Tips Section */
+/* Tips Section Styling */
+.tips-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Fade-in effect for the section */
+}
+
+.tips-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Tip Card Styling with Hover Animations */
+.tip-card {
+    background: #e9f7e7;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transform and box-shadow transition */
+    opacity: 0; /* Initially hidden for fade-in effect */
+    animation: slideUp 0.8s ease-out forwards; /* Animate card appearance */
+}
+
+.tip-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #4e944f;
+    transition: color 0.3s ease;
+}
+
+.tip-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.tip-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Add scale effect on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.tip-card:hover h3 {
+    color: #1e5631; /* Change text color on hover */
+}
+
+/* Read More Button Styling */
+.read-more {
+    background-color: #4e944f;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform on hover */
+}
+
+.read-more:hover {
+    background-color: #1e5631;
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Slide-Up Animation for Card Appearance */
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px); /* Start from below */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* Move into position */
+        opacity: 1;
+    }
+}
+/* Featured Article Section */
+/* Featured Article Section */
+.featured-article {
+    background-color: #f1f1f1;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin-bottom: 50px; /* Added bottom margin for more space between sections */
+}
+
+/* Featured Article Content Layout */
+.featured-article-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Increased gap between image and text */
+    flex-wrap: wrap;
+    margin-top: 30px; /* Added top margin to create some space */
+}
+
+/* Featured Image Styling */
+.featured-image {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Adding shadow around the image */
+    margin-right: 50px; /* Reduced margin-right for better balance */
+    margin-bottom: 20px; /* Added bottom margin for better spacing when wrapped */
+}
+
+/* Article Text Styling */
+.article-text {
+    max-width: 550px; /* Increased max width for text area */
+    text-align: left;
+    padding-left: 20px; /* Added padding for better alignment */
+}
+
+/* Article Header Styling */
+.article-text h3 {
+    font-size: 2rem;
+    margin-bottom: 35px;  /* Increased space between the header and the content below */
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adds slight spacing between letters for a more modern look */
+    line-height: 1.4; /* Added line height for better readability */
+}
+
+/* Article Paragraph Styling */
+.article-text p {
+    font-size: 1.2rem;
+    margin-bottom: 40px; /* Increased space between the paragraph and the button */
+    color: #555;
+    line-height: 1.8; /* Increased line-height for better readability */
+    max-width: 550px; /* Ensure text doesn't get too wide */
+    margin-left: auto;
+    margin-right: auto; /* Center align the paragraph */
+    padding-left: 20px; /* Added padding for better visual appeal */
+}
+
+/* CTA Button Styling */
+.cta-button {
+    background: #000000;
+    color: white;
+    padding: 15px 30px; /* Increased padding for larger button */
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.3rem; /* Slightly larger font size for better visibility */
+    text-transform: uppercase;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow size for more emphasis */
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 50px; /* Increased space above CTA button */
+    display: inline-block; /* Make the button align properly */
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.cta-button:hover {
+    background: #000000;
+    transform: scale(1.1); /* Slight scale-up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Slight increase in shadow */
+}
+

@@ -1,0 +1,803 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and Text Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #000000;
+  }
+  
+  h1, h2, h3 {
+    color: #000000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: url('images/01.jpg') no-repeat center center/cover;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 50px 20px; /* Reduced padding for smaller size */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh; /* Reduced height to 60% of the viewport */
+    position: relative; /* Ensures proper positioning of inner elements */
+  }
+  
+  .hero h1 {
+    font-size: 2.9rem; /* Reduced font size for heading */
+    margin-bottom: 15px; /* Slightly decreased spacing below heading */
+    animation: fadeInDown 1.5s ease-in-out; /* Adds fade-in animation from the top */
+  }
+  
+  .hero p {
+    font-size: 1.5rem; /* Increased font size for better readability */
+    margin-bottom: 20px; /* Reduced spacing below paragraph */
+    animation: fadeInUp 1.5s ease-in-out; /* Adds fade-in animation from the bottom */
+    background-color: white; /* White background color */
+    padding: 10px 15px; /* Adds spacing around the text */
+    border-radius: 5px; /* Rounds the edges of the background */
+    display: inline-block; /* Ensures the background only wraps around the text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for depth */
+    color: #333; /* Sets a darker text color for contrast */
+    text-align: center; /* Centers the text */
+  }
+  
+  
+  /* Animation Keyframes */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px); /* Starts slightly above its position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Ends at its original position */
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* Starts slightly below its position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Ends at its original position */
+    }
+  }
+  
+  
+  .hero .cta-btn {
+    background: linear-gradient(135deg, #2b7a34, #4caf50); /* Gradient background */
+    color: white; /* Text color */
+    padding: 14px 28px; /* Larger padding */
+    border-radius: 50px; /* Fully rounded */
+    font-size: 1.1rem; /* Slightly larger font */
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    border: none; /* No border */
+    transition: all 0.3s ease-in-out; /* Smooth hover effects */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Depth effect */
+    position: relative; /* Position for pseudo-elements */
+    overflow: hidden; /* Hide overflow */
+    animation: slideIn 1s ease-in-out; /* Slide-in animation */
+  }
+  
+  /* Hover Effect */
+  .hero .cta-btn:hover {
+    background: linear-gradient(135deg, #4caf50, #2b7a34); /* Reverses gradient */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Enhances shadow */
+    transform: scale(1.05); /* Grows slightly */
+  }
+  
+  /* Active State */
+  .hero .cta-btn:active {
+    background: linear-gradient(135deg, #237c2b, #3e8e40); /* Darker gradient */
+    transform: scale(0.98); /* Shrinks slightly */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Reduces shadow */
+  }
+  
+  /* Decorative Elements */
+  .hero .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Highlight */
+    transform: skewX(-45deg); /* Diagonal */
+    transition: all 0.5s ease-in-out;
+    z-index: 1; /* Below text */
+  }
+  
+  .hero .cta-btn:hover::before {
+    left: 100%; /* Moves highlight across button */
+  }
+  
+  /* Ensuring Text Visibility */
+  .hero .cta-btn span {
+    position: relative;
+    z-index: 2; /* Text above pseudo-elements */
+  }
+  
+  /* Animation Keyframes */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px); /* Starts below the viewport */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Ends at its normal position */
+    }
+  }
+  
+  
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Slight overlay for better text contrast */
+    z-index: 1; /* Keeps the overlay below the content */
+  }
+  
+  
+  /* About Section */
+  .about, .shop, .sustainability, .contact {
+    padding: 60px 20px; /* Increased padding for better spacing */
+    text-align: center; /* Centers text */
+    background-color: #f9f9f9; /* Light background for better readability */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    margin: 20px auto; /* Adds spacing between sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1200px; /* Restricts the width for better focus on content */
+  }
+  
+  /* Typography for Section Headers */
+  .about h2, .shop h2, .sustainability h2, .contact h2 {
+    font-size: 2rem; /* Larger heading size */
+    margin-bottom: 20px; /* Adds space below the heading */
+    color: #2b7a34; /* Matches theme with a green accent */
+    text-transform: uppercase; /* Adds emphasis */
+    font-weight: bold;
+  }
+  
+  /* Typography for Paragraphs */
+  .about p, .shop p, .sustainability p, .contact p {
+    font-size: 1.2rem; /* Easy-to-read font size */
+    line-height: 1.8; /* Improves readability */
+    color: #555; /* Soft gray for a clean look */
+    margin-bottom: 20px; /* Adds spacing after each paragraph */
+  }
+  
+  /* Add Call-to-Action Buttons in Sections */
+  .about a.btn, .shop a.btn, .sustainability a.btn, .contact a.btn {
+    background: linear-gradient(135deg, #2b7a34, #4caf50); /* Gradient for buttons */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none; /* Removes underline */
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px; /* Adds space above the button */
+  }
+  
+  /* Button Hover Effect */
+  .about a.btn:hover, .shop a.btn:hover, .sustainability a.btn:hover, .contact a.btn:hover {
+    background: linear-gradient(135deg, #4caf50, #2b7a34);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  .about {
+    background: linear-gradient(145deg, #3a7b3a, #50a050); /* Gradient for 3D lighting effect */
+    border-radius: 15px; /* Rounded corners */
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), 
+                -8px -8px 16px rgba(255, 255, 255, 0.1); /* Dual shadows for 3D effect */
+    margin: 20px auto;
+    transition: all 0.3s ease-in-out; /* Smooth hover transition */
+    animation: fadeInSlideUp 1.5s ease-in-out; /* Entry animation */
+  }
+  
+  /* Hover Effect */
+  .about:hover {
+    background: linear-gradient(145deg, #50a050, #3a7b3a); /* Reversed gradient */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), 
+                -10px -10px 20px rgba(255, 255, 255, 0.2); /* Enhanced shadow */
+    transform: translateY(-5px); /* Lift effect */
+  }
+  
+  /* Text Styling */
+  .about h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    animation: fadeIn 1.5s ease-in-out; /* Entry animation for heading */
+  }
+  
+  .about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #f1f1f1;
+    animation: fadeIn 2s ease-in-out 0.3s; /* Staggered entry animation for text */
+  }
+  
+  /* Keyframes for Animation */
+  @keyframes fadeInSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Starts lower */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Ends in place */
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  .shop .product-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Spacing between items */
+    flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+    animation: fadeInZoom 1.5s ease-in-out; /* Entry animation for the list */
+  }
+  
+  .shop .product-card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Subtle 3D gradient */
+    border-radius: 15px; /* Rounded edges */
+    padding: 20px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1), 
+                -8px -8px 16px rgba(255, 255, 255, 0.7); /* 3D shadow */
+    transition: all 0.3s ease-in-out; /* Smooth hover transition */
+    transform: translateY(50px); /* Starts lower for animation */
+    opacity: 0; /* Hidden before animation */
+    animation: slideUpFade 1s ease-in-out forwards; /* Individual card animation */
+  }
+  
+  .shop .product-card:nth-child(odd) {
+    animation-delay: 0.2s; /* Delay for odd cards */
+  }
+  
+  .shop .product-card:nth-child(even) {
+    animation-delay: 0.4s; /* Delay for even cards */
+  }
+  
+  /* Hover Effect for Product Cards */
+  .shop .product-card:hover {
+    background: linear-gradient(145deg, #f9f9f9, #e0e0e0); /* Slight hover change */
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.2), 
+                -12px -12px 24px rgba(255, 255, 255, 0.8); /* Enhanced shadow */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  /* Text Styling in Product Cards */
+  .shop .product-card h3 {
+    font-size: 1.5rem;
+    color: #333333; /* Darker text for contrast */
+    margin-bottom: 10px;
+  }
+  
+  .shop .product-card p {
+    font-size: 1rem;
+    color: #555555; /* Lighter text */
+    margin-bottom: 15px;
+  }
+  
+  .shop .product-card button {
+    background: linear-gradient(135deg, #2b7a34, #8bc34a); /* Vibrant button */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .shop .product-card button:hover {
+    background: linear-gradient(135deg, #8bc34a, #2b7a34); /* Reversed gradient */
+    transform: scale(1.1); /* Slight zoom */
+  }
+  
+  /* Keyframes for List Animation */
+  @keyframes fadeInZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.9); /* Slightly smaller */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* Normal size */
+    }
+  }
+  
+  /* Keyframes for Individual Cards */
+  @keyframes slideUpFade {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Start below */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* End in place */
+    }
+  }
+  
+  /* Product List Container */
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between items */
+    flex-wrap: wrap; /* Wrap for smaller screens */
+    padding: 20px;
+  }
+  
+  /* Product Items */
+  .product-item {
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Subtle 3D gradient */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), 
+                -10px -10px 20px rgba(255, 255, 255, 0.7); /* 3D shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px; /* Ensures uniform width */
+    flex: 1 1 300px; /* Flexible sizing for responsiveness */
+    animation: slideInZoom 1.2s ease-in-out forwards; /* Entry animation */
+    transform: translateY(50px); /* Start lower for animation */
+    opacity: 0; /* Hidden before animation */
+  }
+  
+  /* Staggered Animation for Cards */
+  .product-item:nth-child(odd) {
+    animation-delay: 0.2s;
+  }
+  
+  .product-item:nth-child(even) {
+    animation-delay: 0.4s;
+  }
+  
+  /* Hover Effect for Product Items */
+  .product-item:hover {
+    transform: scale(1.05) rotateX(5deg) rotateY(-5deg); /* 3D hover tilt */
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3), 
+                -15px -15px 30px rgba(255, 255, 255, 0.8); /* Enhanced shadow */
+  }
+  
+  /* Images in Product Items */
+  .product-item img {
+    width: 100%; /* Ensures images fill their container */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures images scale without distortion */
+    border-radius: 10px; /* Matches card's rounded style */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+  }
+  
+  /* Image Hover Effect */
+  .product-item img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+  
+  /* Product Titles */
+  .product-item h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    color: #333333;
+    animation: fadeIn 1s ease-in-out 0.3s forwards;
+    opacity: 0;
+  }
+  
+  /* Product Descriptions */
+  .product-item p {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out 0.5s forwards;
+    opacity: 0;
+  }
+  
+  /* Product Buttons */
+  .product-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #2b7a34, #8bc34a); /* Vibrant gradient */
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1s ease-in-out 0.7s forwards;
+    opacity: 0;
+  }
+  
+  .product-btn:hover {
+    background: linear-gradient(135deg, #8bc34a, #2b7a34); /* Reverse gradient */
+    transform: scale(1.1); /* Slight zoom */
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes slideInZoom {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9); /* Starts lower and smaller */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1); /* Ends in place */
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Sustainability Section */
+.sustainability {
+    position: relative; /* Needed for overlay positioning */
+    padding: 50px 20px;
+    text-align: center;
+    background-image: url('images/05.jpg'); /* Add your image path here */
+    background-size: cover; /* Ensure the image covers the whole section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: rgb(0, 0, 0); /* Text color to contrast with background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 
+                -10px -10px 20px rgba(255, 255, 255, 0.8); /* 3D shadow */
+    animation: fadeInSlide 1.5s ease-in-out forwards; /* Animation for the entire section */
+  }
+  
+  /* Add circle animation to the section background */
+  .sustainability::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.2); /* Light color for circle */
+    border-radius: 50%; /* Make it a circle */
+    animation: moveCircle 8s infinite ease-in-out; /* Circle movement animation */
+    z-index: -1; /* Ensure it stays behind content */
+  }
+  
+  /* Additional circles for variety */
+  .sustainability::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.3); /* Light color for second circle */
+    border-radius: 50%; /* Make it a circle */
+    animation: moveCircle 10s infinite ease-in-out; /* Circle movement animation with delay */
+    z-index: -1;
+  }
+  
+  /* Sustainability List Container */
+  .sustainability ul {
+    list-style-type: none; /* Remove default bullets */
+    margin: 30px auto; /* Increased margin for more spacing around the section */
+    padding: 40px 30px; /* Increased padding for more space inside the section */
+    text-align: left;
+    max-width: 800px; /* Increased width to make the section larger */
+    background: linear-gradient(145deg, #f9f9f9, #e6e6e6); /* Subtle background gradient */
+    border-radius: 20px; /* More rounded corners for a smoother look */
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2), 
+                -15px -15px 30px rgba(255, 255, 255, 0.9); /* Enhanced shadow for depth */
+    animation: fadeInSlide 1.5s ease-in-out forwards; /* Entry animation for the entire list */
+    transform: perspective(1000px); /* Adds perspective for 3D effect */
+}
+
+/* Hover effect for the section */
+.sustainability ul:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3), 
+                -20px -20px 40px rgba(255, 255, 255, 1); /* Enhanced shadow on hover */
+}
+
+  
+  /* List Items */
+  .sustainability ul li {
+    font-size: 1.2rem; /* Slightly larger font size */
+    margin: 10px 0;
+    padding: 10px;
+    background: #ffffff; /* White background for individual items */
+    border-radius: 10px; /* Rounded corners for items */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), 
+                -4px -4px 8px rgba(255, 255, 255, 0.8); /* Soft 3D effect */
+    position: relative; /* For custom bullet placement */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px); /* Start from below for a slide-in effect */
+    animation: fadeInItem 0.7s ease-in-out forwards; /* Individual item animation */
+  }
+  
+  /* Staggered Animation for List Items */
+  .sustainability ul li:nth-child(odd) {
+    animation-delay: 0.2s; /* Delay for odd items */
+  }
+  
+  .sustainability ul li:nth-child(even) {
+    animation-delay: 0.4s; /* Delay for even items */
+  }
+  
+  /* Custom Bullet Icons */
+  .sustainability ul li::before {
+    content: "✔"; /* Custom bullet icon */
+    color: #000000; /* Green for eco-friendly theme */
+    font-size: 1.2rem;
+    position: absolute;
+    left: -25px; /* Adjust position of the icon */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Hover Effects for List Items */
+  .sustainability ul li:hover {
+    background: #f0f8f0; /* Slight green tint on hover */
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), 
+                -6px -6px 12px rgba(255, 255, 255, 0.9); /* Enhanced shadow */
+  }
+  
+  /* Keyframes for Entry Animation of Entire List */
+  @keyframes fadeInSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); /* Starts slightly lower */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Ends in place */
+    }
+  }
+  
+  /* Keyframes for Individual List Item Animation */
+  @keyframes fadeInItem {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); /* Starts from below */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Ends in place */
+    }
+  }
+  
+  /* Keyframes for Circle Animation */
+  @keyframes moveCircle {
+    0% {
+      transform: translateX(0) translateY(0); /* Start at initial position */
+    }
+    25% {
+      transform: translateX(200px) translateY(0); /* Move horizontally to the right */
+    }
+    50% {
+      transform: translateX(200px) translateY(200px); /* Move diagonally down-right */
+    }
+    75% {
+      transform: translateX(0) translateY(200px); /* Move left */
+    }
+    100% {
+      transform: translateX(0) translateY(0); /* Back to the original position */
+    }
+  }
+
+  .sustainability h2 {
+    color: #000000; /* Green color to match the eco-friendly theme */
+    font-size: 2.5rem; /* Slightly larger font size for better readability */
+    font-weight: 600; /* Bold weight for emphasis, but not too heavy */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    letter-spacing: 1px; /* Adds a little space between letters for better readability */
+    text-transform: uppercase; /* Uppercase text for added emphasis */
+    background: linear-gradient(45deg, #989a98, #303130); /* Subtle gradient background */
+    padding: 10px 20px; /* Padding around the text for more space */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for a lift effect */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for h2 */
+.sustainability h2:hover {
+    color: #ffffff; /* Change color on hover */
+    background: linear-gradient(45deg, #2b7a34, #4CAF50); /* Reversed gradient */
+    transform: translateY(-5px); /* Slight lift on hover for interactivity */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.contact {
+    position: relative; /* For layering elements */
+    max-width: 100%; /* Full width */
+    margin: 0 auto; /* Center the section */
+    padding: 50px 20px; /* Spacious padding */
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(240, 240, 240, 0.6)), 
+                url('images/06.jpg'); /* Background image with gradient overlay */
+    background-size: cover; /* Ensure the image covers the section */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* No repeating image */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3), 
+                -10px -10px 30px rgba(255, 255, 255, 0.7); /* 3D shadow */
+    animation: fadeInMain 1.5s ease-in-out forwards; /* Entry animation */
+    perspective: 1000px; /* 3D depth */
+    transform: rotateX(3deg) rotateY(-2deg); /* Slight tilt for 3D effect */
+    color: #333; /* Text color for contrast */
+    overflow: hidden; /* Ensure no content overflows */
+}
+
+/* Add subtle animated overlay effect */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: shimmer 8s infinite ease-in-out; /* Light shimmer animation */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
+/* Shimmer animation for overlay */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Fade-in Animation for Main Section */
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Section Styling */
+.contact form {
+    max-width: 600px; /* Maintain width */
+    margin: 0 auto; /* Center the form */
+    display: flex;
+    flex-direction: column; /* Stack elements */
+    gap: 20px; /* Larger gap between elements for better spacing */
+    padding: 30px; /* Add padding around the form */
+    background: #ffffff; /* Solid white background for better contrast */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15), 
+            -5px -5px 10px rgba(255, 255, 255, 0.7); /* Subtle 3D shadow */
+    animation: fadeInForm 1.5s ease-in-out forwards; /* Entry animation */
+}
+
+/* Form Inputs and Textarea */
+.contact form input, 
+.contact form textarea {
+    padding: 15px; /* Spacious padding */
+    font-size: 1.1rem; /* Slightly larger font */
+    border-radius: 10px; /* Smoother corners */
+    border: 1px solid #ccc; /* Neutral border */
+    transition: all 0.3s ease; /* Smooth transitions for interactions */
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), 
+                inset -5px -5px 10px rgba(255, 255, 255, 0.8); /* Subtle inner shadow */
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for better contrast */
+}
+
+.contact h2 {
+    color: #000000; /* Green color to match the eco-friendly theme */
+    font-size: 2.5rem; /* Slightly larger font size for better readability */
+    font-weight: 600; /* Bold weight for emphasis, but not too heavy */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    letter-spacing: 1px; /* Adds a little space between letters for better readability */
+    text-transform: uppercase; /* Uppercase text for added emphasis */
+    
+}
+
+
+/* Button and Placeholder styling remain unchanged... */
+.submit-btn {
+    background-color: #000000; /* Green background */
+    color: white; /* White text */
+    padding: 15px 25px; /* Slightly larger padding for better appearance */
+    border-radius: 8px; /* More rounded corners */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1.1rem; /* Slightly larger font size */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 4px 10px rgba(255, 255, 255, 0.2); /* Soft shadow for depth */
+}
+
+/* Hover Effect */
+.submit-btn:hover {
+    background-color: #3a9c4e; /* Darker green on hover */
+    transform: translateY(-4px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 
+                0 8px 16px rgba(255, 255, 255, 0.3); /* More pronounced shadow */
+}
+
+/* Active Effect (when clicked) */
+.submit-btn:active {
+    transform: translateY(2px); /* Slight press-down effect */
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2), 
+                inset -2px -2px 4px rgba(255, 255, 255, 0.2); /* Inner shadow */
+}
+
+/* Focus Effect */
+.submit-btn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px 2px rgba(43, 122, 52, 0.5); /* Green glow when focused */
+    background-color: #3a9c4e; /* Maintain the darker green */
+}
+
+/* Animation Effect on Button Load (fading in) */
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submit-btn {
+    animation: fadeInButton 0.5s ease-out; /* Smooth entry animation */
+}
+
+  

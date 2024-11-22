@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9fcf9;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    background: url('images/01.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 5rem;
+}
+
+
+/* Header Animation */
+.header h1, .header p {
+    opacity: 0; /* Start as invisible */
+    transform: translateY(30px); /* Start slightly below */
+    animation: fadeInUp 1s ease-out forwards; /* Animation */
+}
+
+/* Delay the animation for the paragraph */
+.header p {
+    animation-delay: 0.5s; /* Delay to make the paragraph appear after the heading */
+}
+
+/* Keyframes for Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading Style */
+.header h1 {
+    font-size: 3rem; /* Larger font size for emphasis */
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px; /* Adds spacing for more elegance */
+    text-transform: uppercase; /* Text in uppercase for a bold look */
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add some shadow for depth */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for Heading */
+.header h1:hover {
+    color: #000000; /* Changes to green on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Paragraph Style */
+.header p {
+    font-size: 1.9rem;
+    font-weight: 300; /* Lighter weight for a clean look */
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8); /* Slight transparency for readability */
+    max-width: 600px;
+    margin: 0 auto;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover effect for Paragraph */
+.header p:hover {
+    color: #000000; /* Changes to green on hover */
+    transform: translateY(-5px); /* Moves the text slightly up on hover */
+}
+
+/* Products Section */
+.products {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000000;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.product-card h3 {
+    font-size: 1.4rem;
+    color: #000000;
+    margin: 0.5rem 0;
+}
+.product-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.5rem;
+}
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e7d32;
+}
+.product-card button {
+    padding: 0.5rem 1rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease;
+}
+.product-card button:hover {
+    background: #388e3c;
+}
